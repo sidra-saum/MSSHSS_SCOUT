@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events| MSSHSS Scout</title>
+    <link rel="stylesheet" href="event.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Basic Styles */
+        :root {
+            --primary: #1a365d; /* Navy blue */
+            --secondary: #d4af37; /* Gold */
+            --accent: #2c5282; /* Light blue */
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Home Button -->
+<a href="index.html" class="floating-home-btn">
+    <i class="fas fa-home"></i> HOME
+</a>
+    <!-- Navigation would be included here -->
+    
+    <header class="events-header">
+        <div class="container">
+            <h1>Upcoming Scout Events</h1>
+            <p>Join us for these exciting activities and adventures</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Events Filter -->
+        <section class="events-filter">
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="camping">Camping</button>
+                <button class="filter-btn" data-filter="community">Community Service</button>
+                <button class="filter-btn" data-filter="training">Training</button>
+                <button class="filter-btn" data-filter="special">Special Events</button>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search events...">
+                <button class="search-btn">Search</button>
+            </div>
+        </section>
+
+        <!-- Events Calendar -->
+        <section class="events-calendar">
+            <h2 class="section-title">Event Calendar</h2>
+            <div class="calendar-grid">
+                <!-- Event 1 -->
+                <div class="event-card camping">
+                    <div class="event-date">
+                        <span class="date-day">15</span>
+                        <span class="date-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Camping</span>
+                        <h3 class="event-title">Summer Camp Adventure</h3>
+                        <p class="event-time">⏰ 9:00 AM - 4:00 PM</p>
+                        <p class="event-location">📍 Pine Forest Campsite</p>
+                        <p class="event-desc">Annual summer camping trip with outdoor skills training and campfire activities.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card community">
+                    <div class="event-date">
+                        <span class="date-day">22</span>
+                        <span class="date-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Community Service</span>
+                        <h3 class="event-title">Park Cleanup Day</h3>
+                        <p class="event-time">⏰ 8:00 AM - 12:00 PM</p>
+                        <p class="event-location">📍 Riverside Park</p>
+                        <p class="event-desc">Help clean and maintain our local park. Gloves and bags provided.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card training">
+                    <div class="event-date">
+                        <span class="date-day">29</span>
+                        <span class="date-month">JUN</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Training</span>
+                        <h3 class="event-title">First Aid Workshop</h3>
+                        <p class="event-time">⏰ 10:00 AM - 2:00 PM</p>
+                        <p class="event-location">📍 Scout Hall</p>
+                        <p class="event-desc">Certified training for basic first aid and emergency preparedness.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card special">
+                    <div class="event-date">
+                        <span class="date-day">04</span>
+                        <span class="date-month">JUL</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Special Event</span>
+                        <h3 class="event-title">Founder's Day Celebration</h3>
+                        <p class="event-time">⏰ 11:00 AM - 3:00 PM</p>
+                        <p class="event-location">📍 Town Square</p>
+                        <p class="event-desc">Celebrate Scouting's history with games, demonstrations, and awards.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card camping">
+                    <div class="event-date">
+                        <span class="date-day">12</span>
+                        <span class="date-month">JUL</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Camping</span>
+                        <h3 class="event-title">Wilderness Survival</h3>
+                        <p class="event-time">⏰ All Day</p>
+                        <p class="event-location">📍 National Forest</p>
+                        <p class="event-desc">Overnight trip focusing on survival skills and nature awareness.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card community">
+                    <div class="event-date">
+                        <span class="date-day">20</span>
+                        <span class="date-month">JUL</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-category">Community Service</span>
+                        <h3 class="event-title">Food Drive</h3>
+                        <p class="event-time">⏰ 9:00 AM - 1:00 PM</p>
+                        <p class="event-location">📍 Local Supermarket</p>
+                        <p class="event-desc">Collect non-perishable food items for the community food bank.</p>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Events Section -->
+        <section class="past-events">
+            <h2 class="section-title">Past Events Gallery</h2>
+            <div class="event-gallery">
+                <div class="gallery-item">
+                    <img src="images/camping-trip.jpg" alt="Scouts camping">
+                    <div class="gallery-caption">Winter Camp 2023</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/food-drive.jpg" alt="Food drive">
+                    <div class="gallery-caption">16th December 2022</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/awards-ceremony.jpg" alt="Awards ceremony">
+                    <div class="gallery-caption">Meet Up With Old Scout</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer would be included here -->
+</body>
+</html>

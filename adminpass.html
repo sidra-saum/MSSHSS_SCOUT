@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .nav button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .nav button:hover {
+            background-color: #45a049;
+        }
+        .nav a {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.7s;
+        }
+        .nav a:hover {
+            background-color: #45a049;
+        }
+        
+        .content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 200px;
+        }
+        
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .password-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+        
+        .password-box h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .password-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .password-box button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        
+        .password-box button.cancel {
+            background-color: #f44336;
+        }
+        
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Main Website</h1>
+        
+        <div class="nav">
+            <a href="index.html" >Home</a>
+            <a href="about.html" >About</a>
+            <button onclick="requestAdminAccess()">Admin</button>
+        </div>
+        
+        <div class="content" id="home-content">
+            <h2>Welcome to our website</h2>
+            <p>This is the public home page content. Anyone can see this.</p>
+        </div>
+        
+    </div>
+    
+    <div class="password-modal" id="passwordModal">
+        <div class="password-box">
+            <h2>Admin Access Required</h2>
+            <p>Please enter the admin password:</p>
+            <input type="password" id="passwordInput" placeholder="Enter password">
+            <div>
+                <button onclick="checkPassword()">Submit</button>
+                <button class="cancel" onclick="closePasswordModal()">Cancel</button>
+            </div>
+            <p class="error-message" id="errorMessage">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Set your admin password here
+        const ADMIN_PASSWORD = "scout2025";
+        // Set the admin page URL here
+        const ADMIN_PAGE_URL = "admin.html";
+        
+        function showSection(sectionId) {
+            // Hide all content sections
+            document.querySelectorAll('.content').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId + '-content').style.display = 'block';
+        }
+        
+        function requestAdminAccess() {
+            // Show password modal
+            document.getElementById('passwordModal').style.display = 'flex';
+            document.getElementById('passwordInput').focus();
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+        
+        function closePasswordModal() {
+            // Hide password modal
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+        
+        function checkPassword() {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            
+            if (enteredPassword === ADMIN_PASSWORD) {
+                // Password is correct - redirect to admin page
+                window.location.href = ADMIN_PAGE_URL;
+            } else {
+                // Password is incorrect
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+        
+        // Allow submitting password with Enter key
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

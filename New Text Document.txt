@@ -1,0 +1,18 @@
+scout-website/
+├── index.html                 # Home page
+├── announcements.html         # Announcements page
+├── about.html                 # About Us page
+├── contact.html               # Contact page
+├── members.html               # Scout Members page
+├── admin/                     # Admin panel
+│   ├── index.html             # Admin dashboard
+│   ├── announcements.html     # Manage announcements
+│   ├── members.html           # Manage scout members
+│   ├── content.html           # Manage site content
+├── css/
+│   ├── style.css              # Main stylesheet
+│   ├── admin.css              # Admin panel styles
+├── js/
+│   ├── main.js                # Main JavaScript
+│   ├── admin.js               # Admin panel JavaScript
+├── images/                    # All website images

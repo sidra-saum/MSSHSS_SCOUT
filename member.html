@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Members | Admin Dashboard</title>
+    <link rel="stylesheet" href="member.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional member-specific styles */
+        .members-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+        
+        .member-form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        .member-form h3 {
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .members-list {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #3182ce;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: #3182ce;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2c5282;
+        }
+        
+        .btn-outline {
+            background: white;
+            color: #3182ce;
+            border: 1px solid #3182ce;
+        }
+        
+        .btn-outline:hover {
+            background: #ebf8ff;
+        }
+        
+        .members-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .members-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background: #f7fafc;
+            color: #4a5568;
+            font-weight: 600;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .members-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #edf2f7;
+            vertical-align: middle;
+        }
+        
+        .member-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .action-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .edit-btn {
+            background: #e6fffa;
+            color: #38b2ac;
+        }
+        
+        .edit-btn:hover {
+            background: #b2f5ea;
+        }
+        
+        .delete-btn {
+            background: #fff5f5;
+            color: #f56565;
+        }
+        
+        .delete-btn:hover {
+            background: #fed7d7;
+        }
+        
+        .member-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+            font-weight: 600;
+        }
+        
+        .no-members {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+
+        /* Floating Home Button */
+        .floating-home-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1a365d; /* Scout navy blue */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensures it stays above all elements */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .floating-home-btn:hover {
+            background-color: #2c5282; /* Darker blue on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-home-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive adjustment */
+        @media (max-width: 768px) {
+            .floating-home-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Floating Home Button -->
+<a href="index.html" class="floating-home-btn">
+    <i class="fas fa-home"></i> HOME
+</a>
+    <!-- Admin Navigation would be included here -->
+    
+    <div class="admin-container">
+        <h1>Manage Scout Members</h1>
+        
+        <div class="members-container">
+            <!-- Add Member Form -->
+            <section class="member-form">
+                <h3>Add New Member</h3>
+                <form id="memberForm">
+                    <div class="form-group">
+                        <label for="memberName">Full Name</label>
+                        <input type="text" id="memberName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberEmail">Email</label>
+                        <input type="email" id="memberEmail">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberPhone">Phone</label>
+                        <input type="tel" id="memberPhone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberRole">Role</label>
+                        <select id="memberRole" required>
+                            <option value="">Select Role</option>
+                            <option value="Scout">Scout</option>
+                            <option value="Patrol Leader">Patrol Leader</option>
+                            <option value="Senior Patrol Leader">Senior Patrol Leader</option>
+                            <option value="Scoutmaster">Scoutmaster</option>
+                            <option value="Assistant Scoutmaster">Assistant Scoutmaster</option>
+                            <option value="Committee Member">Committee Member</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberPatrol">Patrol/Troop</label>
+                        <input type="text" id="memberPatrol">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberJoinDate">Join Date</label>
+                        <input type="date" id="memberJoinDate" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-outline">Clear</button>
+                        <button type="submit" class="btn btn-primary">Add Member</button>
+                    </div>
+                </form>
+            </section>
+            
+            <!-- Members List -->
+            <section class="members-list">
+                <h3>Current Members</h3>
+                
+                <div class="search-box">
+                    <input type="text" id="memberSearch" placeholder="Search members...">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="members-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Patrol/Troop</th>
+                                <th>Join Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="membersTableBody">
+                            <!-- Members will be loaded here via JavaScript -->
+                            <tr>
+                                <td colspan="5" class="no-members">Loading members...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="member.js"></script>
+</body>
+</html>

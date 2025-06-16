@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements| MSSHSS Scout</title>
+    <link rel="stylesheet" href="announcements.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Home Button -->
+<a href="index.html" class="floating-home-btn">
+    <i class="fas fa-home"></i> HOME
+</a>
+    <!-- Navigation would be included here -->
+    
+    <header class="announcements-header">
+        <div class="container">
+            <h1>Scout Group Announcements</h1>
+            <p>Stay updated with our latest news and important notices</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Admin Controls (visible only to admins) -->
+        <div class="admin-controls">
+            <button id="addAnnouncementBtn" class="btn btn-primary">+ Add Announcement</button>
+            <div class="announcement-form" id="announcementForm">
+                <h3>Create New Announcement</h3>
+                <form id="newAnnouncementForm">
+                    <div class="form-group">
+                        <label for="announcementTitle">Title</label>
+                        <input type="text" id="announcementTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcementContent">Content</label>
+                        <textarea id="announcementContent" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcementCategory">Category</label>
+                        <select id="announcementCategory">
+                            <option value="general">General</option>
+                            <option value="event">Event</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="achievement">Achievement</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="announcementExpiry">Expiry Date</label>
+                        <input type="date" id="announcementExpiry">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="cancelAnnouncementBtn" class="btn btn-outline">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Announcements Filter -->
+        <div class="announcements-filter">
+            <div class="filter-group">
+                <label for="categoryFilter">Filter by:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Announcements</option>
+                    <option value="general">General</option>
+                    <option value="event">Events</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="achievement">Achievements</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input type="text" id="searchInput" placeholder="Search announcements...">
+                <button id="searchBtn" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+
+        <!-- Announcements List -->
+        <div class="announcements-list" id="announcementsList">
+            <!-- Announcements will be loaded here via JavaScript -->
+            <div class="loading">Loading announcements...</div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <button id="prevPageBtn" disabled>← Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPageBtn" disabled>Next →</button>
+        </div>
+    </main>
+
+    <!-- Footer would be included here -->
+
+    <script src="announcements.js"></script>
+</body>
+</html>

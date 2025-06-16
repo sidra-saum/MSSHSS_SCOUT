@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard| MSSHSS Scout</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Home Button -->
+<a href="index.html" class="floating-home-btn">
+    <i class="fas fa-home"></i> HOME
+</a>
+    
+
+    <!-- Admin Dashboard -->
+    <main class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-profile">
+                <img src="logo/shahid smrity official logo - Copy.png" alt="Admin Avatar">
+                <h3>Admin User</h3>
+                <p>Administrator</p>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="index.html" class="active"><i class="icon-dashboard"></i> Dashboard</a></li>
+                <li><a href="announcements.html"><i class="icon-announcements"></i> Announcements</a></li>
+                <li><a href="member.html"><i class="icon-members"></i> Scout Members</a></li>
+                <li><a href="event.html"><i class="icon-content"></i> Site Events</a></li>
+                <li><a href="#"><i class="icon-settings"></i> Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="admin-content">
+            <h1>Admin Dashboard</h1>
+            
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-icon members">
+                        <i class="icon-members"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>94</h3>
+                        <p>Active Members</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon announcements">
+                        <i class="icon-announcements"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>5</h3>
+                        <p>Upcoming Events</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon leaders">
+                        <i class="icon-leaders"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>9</h3>
+                        <p>Leaders</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="icon-edit"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p>Updated the About Us page content</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="icon-add"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p>Added new announcement: Summer Camp 2023</p>
+                            <span class="activity-time">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="icon-member"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p>Added new member: John Doe (Scout)</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h2>Quick Actions</h2>
+                <div class="quick-actions">
+                    <a href="announcements.html?action=add" class="action-card">
+                        <i class="icon-add-announcement"></i>
+                        <span>Add Announcement</span>
+                    </a>
+                    <a href="member.html" class="action-card">
+                        <i class="icon-add-member"></i>
+                        <span>Add Member</span>
+                    </a>
+                    <a href="content.html" class="action-card">
+                        <i class="icon-edit-content"></i>
+                        <span>Edit Content</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

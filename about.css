@@ -1,0 +1,277 @@
+/* About Page Styles */
+.about-section {
+    padding: 60px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #1a365d;
+    margin-bottom: 15px;
+}
+
+.divider {
+    width: 80px;
+    height: 4px;
+    background-color: #2c5282;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* History Section */
+.history-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.history-text {
+    flex: 1;
+}
+
+.history-text h3 {
+    color: #2c5282;
+    margin: 25px 0 15px;
+    font-size: 1.4rem;
+}
+
+.history-text h3:first-child {
+    margin-top: 0;
+}
+
+.history-text p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.history-image {
+    flex: 1;
+}
+
+.history-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    color: #666;
+}
+
+/* School Section */
+.school-section {
+    background-color: #f0f4f8;
+}
+
+.school-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.school-image {
+    flex: 1;
+}
+
+.school-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.school-text {
+    flex: 1;
+}
+
+.school-text h3 {
+    color: #2c5282;
+    margin: 20px 0 15px;
+    font-size: 1.4rem;
+}
+
+.school-text ul {
+    margin: 20px 0 20px 20px;
+}
+
+.school-text li {
+    margin-bottom: 10px;
+}
+
+/* Mission Section */
+.mission-statement {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #1a365d;
+    padding: 20px 40px;
+    border-left: 4px solid #2c5282;
+    background-color: #f0f4f8;
+    margin-bottom: 40px;
+}
+
+.mission-points {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mission-card {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.mission-card h3 {
+    color: #2c5282;
+    margin-bottom: 15px;
+}
+
+/* Leaders Section */
+.leaders-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.leader-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.leader-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.leader-card h3 {
+    color: #1a365d;
+    margin: 20px 0 5px;
+}
+
+.position {
+    color: #2c5282;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.bio {
+    padding: 0 20px 30px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: #1a365d;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .history-content,
+    .school-content {
+        flex-direction: column;
+    }
+    
+    .mission-points {
+        flex-direction: column;
+    }
+    
+    .mission-card {
+        margin-bottom: 20px;
+    }
+    
+    .history-image,
+    .school-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    blockquote {
+        font-size: 1.1rem;
+        padding: 15px 20px;
+    }
+}
+/* Floating Home Button */
+.floating-home-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #1a365d; /* Scout navy blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensures it stays above all elements */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.floating-home-btn:hover {
+    background-color: #2c5282; /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.floating-home-btn i {
+    font-size: 1.2rem;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .floating-home-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
